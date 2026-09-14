@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../assets/header-footer.css">
+    <link rel="stylesheet" href="../assets/initFixo.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-header">
+            <a href="#">Acolhe +</a>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="home.html#inicio">Início</a></li>
+            <li><a href="home.html#sobre">Sobre</a></li>
+            <li><a href="home.html#como-funciona">Como Funciona</a></li>
+            <li><a href="profissionais.html">Profissionais</a></li>
+            <li><a href="artigos.html">Artigos</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li class="btns-mobile">
+                <a href="login.html" class="btn-entrar-mobile">Entrar</a>
+            </li>
+            <li class="btns-mobile">
+                <a href="profissionais.html" class="btn-ajuda-mobile">Preciso de Ajuda</a>
+            </li>
+        </ul>
+
+        <div class="button-menu">
+            <a href="login.html" class="btn-entrar">Entrar</a>
+            <a href="profissionais.html" class="btn-ajuda">Preciso de Ajuda</a>
+        </div>
+
+        <button class="menu-mobile" id="menuMobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+    <main>
+
+        <section class="init">
+            <div class="container">
+                <span class="text-primary fw-bold">
+                    ESCOLHA UM MOMENTO
+                </span>
+                <h1 class="display-4 fw-semibold">
+                    Agendamento
+                </h1>
+                <p>
+                    Organize uma conversa de forma simples. Os dados abaixo são apenas demonstrativos para este projeto
+                    acadêmico.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+
+                    <div class="col-lg-7">
+                        <div class="card h-100 border rounded-4 p-4">
+                            <span class="text-primary fw-bold">
+                                ATENDIMENTO INDIVIDUAL
+                            </span>
+                            <h2 class="h3 fw-semibold mt-2">
+                                Agende seu atendimento
+                            </h2>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    Profissional
+                                </label>
+                                <select class="form-select">
+                                    <option selected>
+                                        Camila Araujo — Psicóloga
+                                    </option>
+                                    <option>
+                                        Carlos Mendes — Terapeuta
+                                    </option>
+                                    <option>
+                                        Mariana Costa — Psicóloga
+                                    </option>
+                                    <option>
+                                        Juliana Rocha — Terapeuta
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    Tipo de atendimento
+                                </label>
+                                <select class="form-select">
+                                    <option selected>
+                                        Conversa de acolhimento
+                                    </option>
+                                    <option>
+                                        Orientação
+                                    </option>
+                                    <option>
+                                        Atendimento individual
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    Data
+                                </label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    Horários disponíveis
+                                </label>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="button" class="btn btn-outline-primary">
+                                        08:00
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary">
+                                        09:00
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary">
+                                        10:00
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary">
+                                        14:00
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary">
+                                        15:00
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary">
+                                        16:00
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-primary fw-semibold">
+                                    Confirmar agendamento
+                                </button>
+                            </div>
+
+                            <div class="alert alert-success mt-3 mb-0">
+                                Agendamento realizado com sucesso! (demonstração)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card h-100 border rounded-4 p-4">
+                            <span class="text-primary fw-bold">
+                                ENCONTROS COLETIVOS
+                            </span>
+                            <h2 class="h3 fw-semibold mt-2">
+                                Participar de um grupo de apoio
+                            </h2>
+                            <p class="text-secondary">
+                                Encontre pessoas com experiências parecidas em um espaço
+                                de conversa guiada.
+                            </p>
+                            <div class="mb-2">
+                                <strong>
+                                    Grupo
+                                </strong>
+                                <p class="text-secondary mb-1">
+                                    Grupo Recomeçar
+                                </p>
+                            </div>
+
+                            <div class="mb-2">
+                                <strong>
+                                    Tema
+                                </strong>
+                                <p class="text-secondary mb-1">
+                                    Ansiedade e bem-estar
+                                </p>
+                            </div>
+
+                            <div class="mb-2">
+                                <strong>
+                                    Data e horário
+                                </strong>
+                                <p class="text-secondary mb-1">
+                                    Sábado, 10h
+                                </p>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>
+                                    Formato
+                                </strong>
+                                <p class="text-secondary mb-1">
+                                    Online
+                                </p>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn btn-outline-primary">
+                                    Participar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+
+
+                <div class="footer-col footer-brand">
+                    <a href="home.html#inicio" class="footer-logo">Acolhe</a>
+                    <p class="footer-desc">Projeto acadêmico de uma rede de apoio de saúde mental, conectando pessoas a
+                        profissionais voluntários e grupos de apoio.</p>
+                </div>
+
+                <div class="footer-col footer-links">
+                    <h4>Links rápidos</h4>
+                    <ul>
+                        <li><a href="home.html#inicio">Início</a></li>
+                        <li><a href="profissionais.html">Profissionais</a></li>
+                        <li><a href="artigos.html">Artigos</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Acolhe – Projeto acadêmico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/script/home.js"></script>
+
+</body>
+
+</html>

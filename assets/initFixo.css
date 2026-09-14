@@ -1,0 +1,23 @@
+.init {
+    background-color: #f1f7ff;
+    padding: 95px 0 70px;
+}
+
+.init span {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.init h1 {
+    color: #0d162b;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.init p {
+    color: #34516f;
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+

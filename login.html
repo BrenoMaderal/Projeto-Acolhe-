@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/header-footer.css">
+    <link rel="stylesheet" href="assets/initFixo.css">
+</head>
+
+
+<body>
+
+   <header>
+        <div class="logo-header">
+            <a href="#">Acolhe +</a>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="home.html#inicio">Início</a></li>
+            <li><a href="home.html#sobre">Sobre</a></li>
+            <li><a href="home.html#como-funciona">Como Funciona</a></li>
+            <li><a href="profissionais.html">Profissionais</a></li>
+            <li><a href="artigos.html">Artigos</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li class="btns-mobile">
+                <a href="login.html" class="btn-entrar-mobile">Entrar</a>
+            </li>
+            <li class="btns-mobile">
+                <a href="profissionais.html" class="btn-ajuda-mobile">Preciso de Ajuda</a>
+            </li>
+        </ul>
+
+        <div class="button-menu">
+            <a href="login.html" class="btn-entrar">Entrar</a>
+            <a href="profissionais.html" class="btn-ajuda">Preciso de Ajuda</a>
+        </div>
+
+        <button class="menu-mobile" id="menuMobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+<main>
+
+    <section class="init">
+        <div class="container">
+            <span class="text-primary fw-bold">
+                SUA JORNADA COMEÇA AQUI
+            </span>
+            <h1 class="display-4 fw-semibold">
+                Login e Cadastro
+            </h1>
+            <p>
+                Este espaço é demonstrativo: você pode conhecer as duas formas de participar
+                do Acolhe+.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-lg-5">
+                    <div class="border rounded-4 p-4 shadow-sm h-100">
+                        <span class="text-primary fw-bold d-block mb-2" style="font-size: 12px; letter-spacing: 1.5px;">JÁ FAZ PARTE?</span>
+                        <h4 class="fw-bold mb-4">Entrar</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="login-email" class="form-label fw-medium">E-mail</label>
+                                <input type="email" id="login-email" class="form-control" placeholder="voce@email.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="login-senha" class="form-label fw-medium">Senha</label>
+                                <input type="password" id="login-senha" class="form-control" placeholder="Sua senha">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="lembrar">
+                                    <label class="form-check-label" for="lembrar" style="font-size: 14px;">Lembrar de mim</label>
+                                </div>
+                                <a href="#" class="text-primary text-decoration-none" style="font-size: 14px;">Esqueci minha senha</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-semibold">Entrar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="rounded-4 p-4 h-100" style="background-color: #f0f7ff;">
+                        <span class="text-primary fw-bold d-block mb-2" style="font-size: 12px; letter-spacing: 1.5px;">FAÇA PARTE DA REDE</span>
+                        <h4 class="fw-bold mb-3">Criar conta</h4>
+
+                        <div class="d-flex gap-2 mb-4">
+                            <button type="button" class="btn btn-primary rounded-pill px-4">Buscar apoio</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill px-4">Ser voluntário</button>
+                        </div>
+
+                        <form>
+                            <div class="mb-3">
+                                <label for="cad-nome" class="form-label fw-medium">Nome</label>
+                                <input type="text" id="cad-nome" class="form-control" placeholder="Seu nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cad-email" class="form-label fw-medium">E-mail</label>
+                                <input type="email" id="cad-email" class="form-control" placeholder="voce@email.com">
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="cad-senha" class="form-label fw-medium">Senha</label>
+                                    <input type="password" id="cad-senha" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cad-confirmar" class="form-label fw-medium">Confirmar senha</label>
+                                    <input type="password" id="cad-confirmar" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="tipo-voluntario" class="form-label fw-medium">Tipo de voluntário (opcional)</label>
+                                <select id="tipo-voluntario" class="form-select">
+                                    <option selected>Escolha uma opção</option>
+                                    <option>Psicólogo(a)</option>
+                                    <option>Assistente Social</option>
+                                    <option>Terapeuta</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary w-100 rounded-pill py-2 fw-semibold">Criar conta</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+  <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+
+
+                <div class="footer-col footer-brand">
+                    <a href="home.html#inicio" class="footer-logo">Acolhe</a>
+                    <p class="footer-desc">Projeto acadêmico de uma rede de apoio de saúde mental, conectando pessoas a
+                        profissionais voluntários e grupos de apoio.</p>
+                </div>
+
+                <div class="footer-col footer-links">
+                    <h4>Links rápidos</h4>
+                    <ul>
+                        <li><a href="home.html#inicio">Início</a></li>
+                        <li><a href="profissionais.html">Profissionais</a></li>
+                        <li><a href="artigos.html">Artigos</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Acolhe – Projeto acadêmico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script/home.js"></script>
+</body>
+</html>
