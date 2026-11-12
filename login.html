@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C</title>
+    <title>Acolhe+</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="assets/header-footer.css">
     <link rel="stylesheet" href="assets/initFixo.css">
+    <link rel="stylesheet" href="assets/formularios.css">
 </head>
 
 
@@ -77,14 +78,16 @@
                     <div class="border rounded-4 p-4 shadow-sm h-100">
                         <span class="text-primary fw-bold d-block mb-2" style="font-size: 12px; letter-spacing: 1.5px;">JÁ FAZ PARTE?</span>
                         <h4 class="fw-bold mb-4">Entrar</h4>
-                        <form>
+                        <form id="formLogin" novalidate>
                             <div class="mb-3">
                                 <label for="login-email" class="form-label fw-medium">E-mail</label>
                                 <input type="email" id="login-email" class="form-control" placeholder="voce@email.com">
+                                <div class="invalid-feedback" id="erro-login-email"></div>
                             </div>
                             <div class="mb-3">
                                 <label for="login-senha" class="form-label fw-medium">Senha</label>
                                 <input type="password" id="login-senha" class="form-control" placeholder="Sua senha">
+                                <div class="invalid-feedback" id="erro-login-senha"></div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <div class="form-check">
@@ -95,6 +98,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-semibold">Entrar</button>
                         </form>
+                        <div class="alert mt-3 mb-0 d-none" id="msgLogin"></div>
                     </div>
                 </div>
 
@@ -104,41 +108,77 @@
                         <h4 class="fw-bold mb-3">Criar conta</h4>
 
                         <div class="d-flex gap-2 mb-4">
-                            <button type="button" class="btn btn-primary rounded-pill px-4">Buscar apoio</button>
-                            <button type="button" class="btn btn-outline-primary rounded-pill px-4">Ser voluntário</button>
+                            <button type="button" class="btn btn-primary rounded-pill px-4" id="btnApoio">Buscar apoio</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill px-4" id="btnVoluntario">Ser voluntário</button>
                         </div>
 
-                        <form>
+                        <form id="formCadastro" novalidate>
                             <div class="mb-3">
                                 <label for="cad-nome" class="form-label fw-medium">Nome</label>
                                 <input type="text" id="cad-nome" class="form-control" placeholder="Seu nome">
+                                <div class="invalid-feedback" id="erro-cad-nome"></div>
                             </div>
-                            <div class="mb-3">
-                                <label for="cad-email" class="form-label fw-medium">E-mail</label>
-                                <input type="email" id="cad-email" class="form-control" placeholder="voce@email.com">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="cad-email" class="form-label fw-medium">E-mail</label>
+                                    <input type="email" id="cad-email" class="form-control" placeholder="voce@email.com">
+                                    <div class="invalid-feedback" id="erro-cad-email"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cad-telefone" class="form-label fw-medium">Celular</label>
+                                    <input type="tel" id="cad-telefone" class="form-control" placeholder="(18) 99999-9999">
+                                    <div class="invalid-feedback" id="erro-cad-telefone"></div>
+                                </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="cad-senha" class="form-label fw-medium">Senha</label>
                                     <input type="password" id="cad-senha" class="form-control">
+                                    <div class="form-text">Mínimo 8 caracteres, com letras e números.</div>
+                                    <div class="invalid-feedback" id="erro-cad-senha"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="cad-confirmar" class="form-label fw-medium">Confirmar senha</label>
                                     <input type="password" id="cad-confirmar" class="form-control">
+                                    <div class="invalid-feedback" id="erro-cad-confirmar"></div>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <label for="tipo-voluntario" class="form-label fw-medium">Tipo de voluntário (opcional)</label>
-                                <select id="tipo-voluntario" class="form-select">
-                                    <option selected>Escolha uma opção</option>
-                                    <option>Psicólogo(a)</option>
-                                    <option>Assistente Social</option>
-                                    <option>Terapeuta</option>
-                                    <option>Outro</option>
-                                </select>
+
+                            <!-- Campos que só aparecem quando clica em "Ser voluntário" -->
+                            <div id="camposVoluntario" class="d-none">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="tipo-voluntario" class="form-label fw-medium">Tipo de voluntário</label>
+                                        <select id="tipo-voluntario" class="form-select">
+                                            <option value="" selected>Escolha uma opção</option>
+                                            <option>Psicólogo(a)</option>
+                                            <option>Assistente Social</option>
+                                            <option>Terapeuta</option>
+                                            <option>Outro</option>
+                                        </select>
+                                        <div class="invalid-feedback" id="erro-tipo-voluntario"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="cad-registro" class="form-label fw-medium">Registro profissional (CRP / CRESS)</label>
+                                        <input type="text" id="cad-registro" class="form-control" placeholder="Ex: 06/123456">
+                                        <div class="invalid-feedback" id="erro-cad-registro"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cad-cnpj" class="form-label fw-medium">CNPJ da clínica ou instituição (opcional)</label>
+                                    <input type="text" id="cad-cnpj" class="form-control" placeholder="00.000.000/0000-00">
+                                    <div class="invalid-feedback" id="erro-cad-cnpj"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="cad-termos">
+                                <label class="form-check-label" for="cad-termos" style="font-size: 14px;">Li e aceito os termos de uso e a política de privacidade.</label>
+                                <div class="invalid-feedback" id="erro-cad-termos"></div>
                             </div>
                             <button type="submit" class="btn btn-outline-primary w-100 rounded-pill py-2 fw-semibold">Criar conta</button>
                         </form>
+                        <div class="alert mt-3 mb-0 d-none" id="msgCadastro"></div>
                     </div>
                 </div>
 
@@ -178,3 +218,9 @@
     </footer>
 
     <script src="assets/script/home.js"></script>
+    <script src="assets/script/validacoes.js"></script>
+    <script src="assets/script/login.js"></script>
+
+</body>
+
+</html>
