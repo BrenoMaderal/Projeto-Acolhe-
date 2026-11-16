@@ -106,12 +106,6 @@
                     <div class="rounded-4 p-4 h-100" style="background-color: #f0f7ff;">
                         <span class="text-primary fw-bold d-block mb-2" style="font-size: 12px; letter-spacing: 1.5px;">FAÇA PARTE DA REDE</span>
                         <h4 class="fw-bold mb-3">Criar conta</h4>
-
-                        <div class="d-flex gap-2 mb-4">
-                            <button type="button" class="btn btn-primary rounded-pill px-4" id="btnApoio">Buscar apoio</button>
-                            <button type="button" class="btn btn-outline-primary rounded-pill px-4" id="btnVoluntario">Ser voluntário</button>
-                        </div>
-
                         <form id="formCadastro" novalidate>
                             <div class="mb-3">
                                 <label for="cad-nome" class="form-label fw-medium">Nome</label>
@@ -132,9 +126,21 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
+                                    <label for="cad-cpf" class="form-label fw-medium">CPF</label>
+                                    <input type="text" id="cad-cpf" class="form-control" placeholder="000.000.000-00">
+                                    <div class="invalid-feedback" id="erro-cad-cpf"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cad-nascimento" class="form-label fw-medium">Data de nascimento</label>
+                                    <input type="date" id="cad-nascimento" class="form-control">
+                                    <div class="invalid-feedback" id="erro-cad-nascimento"></div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
                                     <label for="cad-senha" class="form-label fw-medium">Senha</label>
                                     <input type="password" id="cad-senha" class="form-control">
-                                    <div class="form-text">Mínimo 8 caracteres, com letras e números.</div>
+                                    <div class="form-text">Mínimo 6 caracteres.</div>
                                     <div class="invalid-feedback" id="erro-cad-senha"></div>
                                 </div>
                                 <div class="col-md-6">
@@ -144,31 +150,20 @@
                                 </div>
                             </div>
 
-                            <!-- Campos que só aparecem quando clica em "Ser voluntário" -->
-                            <div id="camposVoluntario" class="d-none">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="tipo-voluntario" class="form-label fw-medium">Tipo de voluntário</label>
-                                        <select id="tipo-voluntario" class="form-select">
-                                            <option value="" selected>Escolha uma opção</option>
-                                            <option>Psicólogo(a)</option>
-                                            <option>Assistente Social</option>
-                                            <option>Terapeuta</option>
-                                            <option>Outro</option>
-                                        </select>
-                                        <div class="invalid-feedback" id="erro-tipo-voluntario"></div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="cad-registro" class="form-label fw-medium">Registro profissional (CRP / CRESS)</label>
-                                        <input type="text" id="cad-registro" class="form-control" placeholder="Ex: 06/123456">
-                                        <div class="invalid-feedback" id="erro-cad-registro"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="cad-cnpj" class="form-label fw-medium">CNPJ da clínica ou instituição (opcional)</label>
-                                    <input type="text" id="cad-cnpj" class="form-control" placeholder="00.000.000/0000-00">
-                                    <div class="invalid-feedback" id="erro-cad-cnpj"></div>
-                                </div>
+                            <div class="mb-3">
+                                <label for="tipo-voluntario" class="form-label fw-medium">Quer ser voluntário? (opcional)</label>
+                                <select id="tipo-voluntario" class="form-select">
+                                    <option value="" selected>Não, quero buscar apoio</option>
+                                    <option>Psicólogo(a)</option>
+                                    <option>Assistente Social</option>
+                                    <option>Terapeuta</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cad-cnpj" class="form-label fw-medium">CNPJ da sua clínica ou empresa (opcional)</label>
+                                <input type="text" id="cad-cnpj" class="form-control" placeholder="00.000.000/0000-00">
+                                <div class="invalid-feedback" id="erro-cad-cnpj"></div>
                             </div>
 
                             <div class="mb-4 form-check">
@@ -194,7 +189,7 @@
 
 
                 <div class="footer-col footer-brand">
-                    <a href="home.html#inicio" class="footer-logo">Acolhe</a>
+                    <a href="index.html#inicio" class="footer-logo">Acolhe</a>
                     <p class="footer-desc">Projeto acadêmico de uma rede de apoio de saúde mental, conectando pessoas a
                         profissionais voluntários e grupos de apoio.</p>
                 </div>
@@ -202,7 +197,7 @@
                 <div class="footer-col footer-links">
                     <h4>Links rápidos</h4>
                     <ul>
-                        <li><a href="home.html#inicio">Início</a></li>
+                        <li><a href="index.html#inicio">Início</a></li>
                         <li><a href="profissionais.html">Profissionais</a></li>
                         <li><a href="artigos.html">Artigos</a></li>
                         <li><a href="faq.html">FAQ</a></li>

@@ -1,79 +1,64 @@
-/* =========================================================
-   PÁGINA DE CONTATO
-   Usa as funções do arquivo validacoes.js
-   ========================================================= */
 
 var formContato = document.querySelector("#formContato");
-var ctNome = document.querySelector("#nome");
-var ctEmail = document.querySelector("#email");
-var ctTelefone = document.querySelector("#telefone");
-var ctAssunto = document.querySelector("#assunto");
-var ctMensagem = document.querySelector("#mensagem");
+var contatoNome = document.querySelector("#nome");
+var contatoEmail = document.querySelector("#email");
+var contatoTelefone = document.querySelector("#telefone");
+var contatoAssunto = document.querySelector("#assunto");
+var contatoCidade = document.querySelector("#cidade");
+var contatoMotivo = document.querySelector("#motivo");
+var contatoPeriodo = document.querySelector("#periodo");
+var contatoMensagem = document.querySelector("#mensagem");
 var msgContato = document.querySelector("#msgContato");
-var contadorMensagem = document.querySelector("#contadorMensagem");
 
-// Máscara e contador
-ctTelefone.addEventListener("input", function () { mascaraTelefone(ctTelefone); }, false);
-ctMensagem.addEventListener("input", function () {
-  contadorMensagem.innerHTML = ctMensagem.value.length;
-}, false);
+
+contatoTelefone.addEventListener("input", function () { mascaraTelefone(contatoTelefone); }, false);
+
 
 formContato.addEventListener("submit", function (evento) {
-  evento.preventDefault();
+  evento.preventDefault(); 
   var correto = true;
 
-  if (ctNome.value.trim().length < 3) {
-    marcarErro(ctNome, "Informe seu nome (mínimo 3 letras).");
+
+  if (!validarTamanho(contatoNome, 3, "Informe seu nome (mínimo 3 letras).")) correto = false;
+  if (!validarTamanho(contatoAssunto, 5, "Escreva o assunto (mínimo 5 caracteres).")) correto = false;
+  if (!validarTamanho(contatoCidade, 3, "Informe sua cidade.")) correto = false;
+  if (!validarTamanho(contatoMensagem, 15, "Sua mensagem precisa ter pelo menos 15 caracteres.")) correto = false;
+
+
+  if (!validarSelect(contatoMotivo, "Escolha o motivo do contato.")) correto = false;
+  if (!validarSelect(contatoPeriodo, "Escolha o melhor período.")) correto = false;
+
+
+  if (!validarEmail(contatoEmail.value)) {
+    marcarErro(contatoEmail, "Informe um e-mail válido.");
     correto = false;
   } else {
-    marcarOk(ctNome);
+    marcarOk(contatoEmail);
   }
 
-  if (ctEmail.value == "") {
-    marcarErro(ctEmail, "Informe seu e-mail para podermos responder.");
-    correto = false;
-  } else if (!validarEmail(ctEmail.value)) {
-    marcarErro(ctEmail, "E-mail em formato inválido.");
-    correto = false;
-  } else {
-    marcarOk(ctEmail);
-  }
+  
+  if (!validarRadio("retorno", "Escolha como prefere receber a resposta.")) correto = false;
 
-  // Telefone é opcional: só valida se a pessoa digitou algo
-  var numTel = somenteNumeros(ctTelefone.value);
-  if (numTel == "") {
-    limparMarcacao(ctTelefone);
-  } else if (numTel.length < 10) {
-    marcarErro(ctTelefone, "Telefone incompleto.");
+  
+  var retorno = pegarRadio("retorno");
+  var numTel = somenteNumeros(contatoTelefone.value);
+  if ((retorno == "Telefone" || retorno == "WhatsApp") && numTel.length != 11) {
+    marcarErro(contatoTelefone, "Informe o celular com DDD para responder por " + retorno + ".");
+    correto = false;
+  } else if (numTel != "" && numTel.length != 11) {
+    marcarErro(contatoTelefone, "Celular incompleto. Use DDD + 9 números.");
     correto = false;
   } else {
-    marcarOk(ctTelefone);
+    limparMarcacao(contatoTelefone);
   }
 
-  if (ctAssunto.value.trim().length < 5) {
-    marcarErro(ctAssunto, "Escreva o assunto (mínimo 5 caracteres).");
-    correto = false;
-  } else {
-    marcarOk(ctAssunto);
-  }
-
-  if (ctMensagem.value.trim().length < 15) {
-    marcarErro(ctMensagem, "Sua mensagem precisa ter pelo menos 15 caracteres.");
-    correto = false;
-  } else {
-    marcarOk(ctMensagem);
-  }
-
-  msgContato.classList.remove("d-none");
-  msgContato.classList.remove("alert-danger");
-  msgContato.classList.remove("alert-success");
+  
+  msgContato.classList.remove("d-none", "alert-danger", "alert-success");
   if (correto) {
     msgContato.classList.add("alert-success");
-    msgContato.innerHTML = "Mensagem enviada! Obrigado pelo contato, " + ctNome.value +
-      ". Responderemos em até 2 dias úteis. (demonstração)";
+    msgContato.textContent = "Mensagem enviada! Obrigado pelo contato, " + contatoNome.value + ".";
     formContato.reset();
-    contadorMensagem.innerHTML = "0";
-    var campos = formContato.querySelectorAll(".form-control, .form-select");
+    var campos = formContato.querySelectorAll(".is-valid");
     for (let i = 0; i < campos.length; i++) {
       limparMarcacao(campos[i]);
     }

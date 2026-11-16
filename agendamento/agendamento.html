@@ -74,10 +74,10 @@
             <div class="container">
                 <div class="row g-4">
 
-                    <div class="col-lg-7">
+                    <div class="col-12">
                         <div class="card h-100 border rounded-4 p-4">
                             <span class="text-primary fw-bold">
-                                ATENDIMENTO INDIVIDUAL
+                                ATENDIMENTOS
                             </span>
                             <h2 class="h3 fw-semibold mt-2">
                                 Agende seu atendimento
@@ -86,18 +86,31 @@
                                 Campos com <span class="text-danger">*</span> são obrigatórios.
                             </p>
 
-                            <!-- novalidate: quem valida é o nosso JavaScript -->
                             <form id="formAgendamento" novalidate>
 
-                                <!-- ===== DADOS PESSOAIS ===== -->
                                 <h3 class="titulo-etapa">1. Seus dados</h3>
 
-                                <div class="mb-3">
-                                    <label for="ag-nome" class="form-label fw-semibold">
-                                        Nome completo <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" id="ag-nome" class="form-control" placeholder="Seu nome e sobrenome">
-                                    <div class="invalid-feedback" id="erro-ag-nome"></div>
+                                <div class="row">
+                                    <div class="col-md-8 mb-3">
+                                        <label for="ag-nome" class="form-label fw-semibold">
+                                            Nome completo <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" id="ag-nome" class="form-control" placeholder="Seu nome e sobrenome">
+                                        <div class="invalid-feedback" id="erro-ag-nome"></div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="ag-genero" class="form-label fw-semibold">
+                                            Gênero <span class="text-danger">*</span>
+                                        </label>
+                                        <select id="ag-genero" class="form-select">
+                                            <option value="" selected>Escolha</option>
+                                            <option>Feminino</option>
+                                            <option>Masculino</option>
+                                            <option>Não binário</option>
+                                            <option>Prefiro não informar</option>
+                                        </select>
+                                        <div class="invalid-feedback" id="erro-ag-genero"></div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -120,7 +133,7 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="ag-telefone" class="form-label fw-semibold">
-                                            Telefone / WhatsApp <span class="text-danger">*</span>
+                                            Celular / WhatsApp <span class="text-danger">*</span>
                                         </label>
                                         <input type="tel" id="ag-telefone" class="form-control" placeholder="(18) 99999-9999">
                                         <div class="invalid-feedback" id="erro-ag-telefone"></div>
@@ -166,34 +179,41 @@
                                     </div>
                                 </div>
 
-                                <!-- ===== DADOS DO ATENDIMENTO ===== -->
                                 <h3 class="titulo-etapa">2. Sobre o atendimento</h3>
 
                                 <div class="mb-3">
-                                    <label for="ag-profissional" class="form-label fw-semibold">
-                                        Profissional <span class="text-danger">*</span>
+                                    <label class="form-label fw-semibold d-block">
+                                        Deseja agendar: <span class="text-danger">*</span>
                                     </label>
-                                    <select id="ag-profissional" class="form-select">
-                                        <option value="" selected>Escolha um profissional</option>
-                                        <option>Camila Araujo — Psicóloga</option>
-                                        <option>Carlos Mendes — Terapeuta</option>
-                                        <option>Mariana Costa — Psicóloga</option>
-                                        <option>Juliana Rocha — Terapeuta</option>
-                                    </select>
-                                    <div class="invalid-feedback" id="erro-ag-profissional"></div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="formato" id="ag-individual" value="Individual">
+                                        <label class="form-check-label" for="ag-individual">Individual</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="formato" id="ag-grupo" value="Em grupo">
+                                        <label class="form-check-label" for="ag-grupo">Em grupo</label>
+                                    </div>
+                                    <div class="invalid-feedback" id="erro-formato"></div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="ag-tipo" class="form-label fw-semibold">
-                                        Tipo de atendimento <span class="text-danger">*</span>
+                                    <label for="ag-profissional" class="form-label fw-semibold">
+                                        Profissional ou grupo <span class="text-danger">*</span>
                                     </label>
-                                    <select id="ag-tipo" class="form-select">
-                                        <option value="" selected>Escolha o tipo</option>
-                                        <option>Conversa de acolhimento</option>
-                                        <option>Orientação</option>
-                                        <option>Atendimento individual</option>
+                                    <select id="ag-profissional" class="form-select">
+                                        <option value="" selected>Escolha uma opção</option>
+                                        <optgroup label="Individual">
+                                            <option>Camila Araujo - Psicóloga</option>
+                                            <option>Carlos Mendes - Terapeuta</option>
+                                            <option>Mariana Costa - Psicóloga</option>
+                                            <option>Juliana Rocha - Terapeuta</option>
+                                        </optgroup>
+                                        <optgroup label="Em grupo">
+                                            <option>Grupo Recomeçar</option>
+                                            <option>Círculo do Bem-Estar</option>
+                                        </optgroup>
                                     </select>
-                                    <div class="invalid-feedback" id="erro-ag-tipo"></div>
+                                    <div class="invalid-feedback" id="erro-ag-profissional"></div>
                                 </div>
 
                                 <div class="mb-3">
@@ -208,8 +228,22 @@
                                         <input class="form-check-input" type="radio" name="modalidade" id="ag-presencial" value="Presencial">
                                         <label class="form-check-label" for="ag-presencial">Presencial</label>
                                     </div>
-                                    <!-- no radio a mensagem é mostrada pelo JS com a classe d-block -->
                                     <div class="invalid-feedback" id="erro-modalidade"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold d-block">
+                                        Já faz ou fez acompanhamento psicológico? <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="acompanhamento" id="ag-acomp-sim" value="Sim">
+                                        <label class="form-check-label" for="ag-acomp-sim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="acompanhamento" id="ag-acomp-nao" value="Não">
+                                        <label class="form-check-label" for="ag-acomp-nao">Não</label>
+                                    </div>
+                                    <div class="invalid-feedback" id="erro-acompanhamento"></div>
                                 </div>
 
                                 <div class="mb-3">
@@ -217,7 +251,7 @@
                                         Data <span class="text-danger">*</span>
                                     </label>
                                     <input type="date" id="ag-data" class="form-control">
-                                    <div class="form-text">Atendimentos de segunda a sábado, nos próximos 60 dias.</div>
+                                    <div class="form-text">Atendimentos de segunda a sábado.</div>
                                     <div class="invalid-feedback" id="erro-ag-data"></div>
                                 </div>
 
@@ -226,16 +260,25 @@
                                         Horários disponíveis <span class="text-danger">*</span>
                                     </label>
                                     <div class="d-flex flex-wrap gap-2" id="listaHorarios">
-                                        <button type="button" class="btn btn-outline-primary">08:00</button>
-                                        <button type="button" class="btn btn-outline-primary">09:00</button>
-                                        <button type="button" class="btn btn-outline-primary">10:00</button>
-                                        <button type="button" class="btn btn-outline-primary">14:00</button>
-                                        <button type="button" class="btn btn-outline-primary">15:00</button>
-                                        <button type="button" class="btn btn-outline-primary">16:00</button>
+                                        <input type="radio" class="btn-check" name="horario" id="h0800" value="08:00">
+                                        <label class="btn btn-outline-primary" for="h0800">08:00</label>
+
+                                        <input type="radio" class="btn-check" name="horario" id="h0900" value="09:00">
+                                        <label class="btn btn-outline-primary" for="h0900">09:00</label>
+
+                                        <input type="radio" class="btn-check" name="horario" id="h1000" value="10:00">
+                                        <label class="btn btn-outline-primary" for="h1000">10:00</label>
+
+                                        <input type="radio" class="btn-check" name="horario" id="h1400" value="14:00">
+                                        <label class="btn btn-outline-primary" for="h1400">14:00</label>
+
+                                        <input type="radio" class="btn-check" name="horario" id="h1500" value="15:00">
+                                        <label class="btn btn-outline-primary" for="h1500">15:00</label>
+
+                                        <input type="radio" class="btn-check" name="horario" id="h1600" value="16:00">
+                                        <label class="btn btn-outline-primary" for="h1600">16:00</label>
                                     </div>
-                                    <!-- guarda o horário que a pessoa clicou -->
-                                    <input type="hidden" id="ag-horario">
-                                    <div class="invalid-feedback" id="erro-ag-horario"></div>
+                                    <div class="invalid-feedback" id="erro-horario"></div>
                                 </div>
 
                                 <div class="row">
@@ -264,8 +307,18 @@
                                     </label>
                                     <textarea id="ag-motivo" class="form-control" rows="4" maxlength="500"
                                         placeholder="Escreva com calma, aqui é um espaço seguro."></textarea>
-                                    <div class="form-text"><span id="contadorMotivo">0</span>/500 caracteres (mínimo 20)</div>
+                                    <div class="form-text">Mínimo de 20 caracteres.</div>
                                     <div class="invalid-feedback" id="erro-ag-motivo"></div>
+                                </div>
+
+                                <div class="alert alert-info d-flex align-items-center gap-3 mb-3">
+                                    <strong class="fs-3 mb-0">188</strong>
+                                    <div>
+                                        Precisa conversar agora? O <strong>CVV – Centro de Valorização da Vida</strong>
+                                        atende 24 horas, de graça, pelo telefone
+                                        <a href="tel:188" class="alert-link">188</a> ou pelo site
+                                        <a href="https://cvv.org.br" target="_blank" class="alert-link">cvv.org.br</a>.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3 form-check">
@@ -286,65 +339,8 @@
                                 </div>
                             </form>
 
-                            <!-- mensagens no lugar do alert() -->
                             <div class="alert alert-danger mt-3 mb-0 d-none" id="msgErroAgendamento"></div>
                             <div class="alert alert-success mt-3 mb-0 d-none" id="msgSucessoAgendamento"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="card h-100 border rounded-4 p-4">
-                            <span class="text-primary fw-bold">
-                                ENCONTROS COLETIVOS
-                            </span>
-                            <h2 class="h3 fw-semibold mt-2">
-                                Participar de um grupo de apoio
-                            </h2>
-                            <p class="text-secondary">
-                                Encontre pessoas com experiências parecidas em um espaço
-                                de conversa guiada.
-                            </p>
-                            <div class="mb-2">
-                                <strong>
-                                    Grupo
-                                </strong>
-                                <p class="text-secondary mb-1">
-                                    Grupo Recomeçar
-                                </p>
-                            </div>
-
-                            <div class="mb-2">
-                                <strong>
-                                    Tema
-                                </strong>
-                                <p class="text-secondary mb-1">
-                                    Ansiedade e bem-estar
-                                </p>
-                            </div>
-
-                            <div class="mb-2">
-                                <strong>
-                                    Data e horário
-                                </strong>
-                                <p class="text-secondary mb-1">
-                                    Sábado, 10h
-                                </p>
-                            </div>
-
-                            <div class="mb-3">
-                                <strong>
-                                    Formato
-                                </strong>
-                                <p class="text-secondary mb-1">
-                                    Online
-                                </p>
-                            </div>
-
-                            <div>
-                                <button type="button" class="btn btn-outline-primary">
-                                    Participar
-                                </button>
-                            </div>
                         </div>
                     </div>
 
@@ -353,7 +349,6 @@
         </section>
 
 
-        <!-- ===== TABELA COM CHECKBOX PARA EXCLUSÃO ===== -->
         <section class="pb-5">
             <div class="container">
                 <div class="card border rounded-4 p-4">
@@ -373,15 +368,14 @@
                         <table class="table table-hover align-middle tabela-acolhe">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" class="form-check-input" id="marcarTodos" title="Marcar todos"></th>
+                                    <th></th>
                                     <th>Profissional</th>
-                                    <th>Tipo</th>
+                                    <th>Formato</th>
                                     <th>Modalidade</th>
                                     <th>Data</th>
                                     <th>Horário</th>
                                 </tr>
                             </thead>
-                            <!-- as linhas são criadas pelo JavaScript a partir do vetor -->
                             <tbody id="corpoTabela"></tbody>
                         </table>
                     </div>

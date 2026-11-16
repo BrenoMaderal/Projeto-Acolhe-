@@ -102,10 +102,57 @@
                                     <div class="invalid-feedback" id="erro-assunto"></div>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="cidade" class="form-label fw-medium">Cidade</label>
+                                    <input type="text" id="cidade" class="form-control" placeholder="Sua cidade">
+                                    <div class="invalid-feedback" id="erro-cidade"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="motivo" class="form-label fw-medium">Motivo do contato</label>
+                                    <select id="motivo" class="form-select">
+                                        <option value="" selected>Escolha uma opção</option>
+                                        <option>Dúvida</option>
+                                        <option>Sugestão</option>
+                                        <option>Quero ser voluntário(a)</option>
+                                        <option>Parceria com instituição</option>
+                                        <option>Outro</option>
+                                    </select>
+                                    <div class="invalid-feedback" id="erro-motivo"></div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-7">
+                                    <label class="form-label fw-medium d-block">Como prefere receber a resposta?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="retorno" id="ret-email" value="E-mail">
+                                        <label class="form-check-label" for="ret-email">E-mail</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="retorno" id="ret-telefone" value="Telefone">
+                                        <label class="form-check-label" for="ret-telefone">Telefone</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="retorno" id="ret-whats" value="WhatsApp">
+                                        <label class="form-check-label" for="ret-whats">WhatsApp</label>
+                                    </div>
+                                    <div class="invalid-feedback" id="erro-retorno"></div>
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="periodo" class="form-label fw-medium">Melhor período</label>
+                                    <select id="periodo" class="form-select">
+                                        <option value="" selected>Escolha</option>
+                                        <option>Manhã</option>
+                                        <option>Tarde</option>
+                                        <option>Noite</option>
+                                    </select>
+                                    <div class="invalid-feedback" id="erro-periodo"></div>
+                                </div>
+                            </div>
                             <div class="mb-4">
                                 <label for="mensagem" class="form-label fw-medium">Mensagem</label>
                                 <textarea id="mensagem" class="form-control" rows="5" maxlength="1000" placeholder="Escreva sua mensagem"></textarea>
-                                <div class="form-text"><span id="contadorMensagem">0</span>/1000 caracteres (mínimo 15)</div>
+                                <div class="form-text">Mínimo de 15 caracteres.</div>
                                 <div class="invalid-feedback" id="erro-mensagem"></div>
                             </div>
                             <button type="submit" class="btn btn-primary rounded-pill px-4">Enviar mensagem</button>
@@ -131,9 +178,16 @@
                             <span class="text-secondary">(18) 9999-9999</span>
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <h6 class="fw-bold mb-1">Horário de atendimento</h6>
                             <span class="text-secondary">Segunda a sexta, das 9h às 18h</span>
+                        </div>
+
+                        <div class="alert alert-info mb-0">
+                            <h6 class="fw-bold mb-1">Precisa conversar agora?</h6>
+                            O <strong>CVV – Centro de Valorização da Vida</strong> oferece apoio emocional
+                            24 horas, de graça e em sigilo. Ligue <a href="tel:188" class="alert-link">188</a>
+                            ou acesse <a href="https://cvv.org.br" target="_blank" class="alert-link">cvv.org.br</a>.
                         </div>
                     </div>
                 </div>
@@ -155,9 +209,9 @@
                 <div class="alerta-content">
                     <h3 class="alerta-titulo">Precisa de ajuda imediata?</h3>
                     <p class="alerta-desc">Esta plataforma não substitui serviços de emergência. Em situações de
-                        risco imediato, procure um serviço de emergência ou entre em contato com os serviços
-                        oficiais da sua região.</p>
-                    <a href="https://www.gov.br/saude/pt-br" class="btn-alerta">Serviços de emergência</a>
+                        risco imediato, ligue para o <strong>CVV – Centro de Valorização da Vida (188)</strong>,
+                        que atende 24 horas e de graça.</p>
+                    <a href="tel:188" class="btn-alerta">Ligar para o CVV (188)</a>
                 </div>
             </div>
         </div>
@@ -171,7 +225,7 @@
 
 
                 <div class="footer-col footer-brand">
-                    <a href="home.html#inicio" class="footer-logo">Acolhe</a>
+                    <a href="index.html#inicio" class="footer-logo">Acolhe</a>
                     <p class="footer-desc">Projeto acadêmico de uma rede de apoio de saúde mental, conectando pessoas a
                         profissionais voluntários e grupos de apoio.</p>
                 </div>
